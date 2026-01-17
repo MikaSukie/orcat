@@ -192,12 +192,12 @@ canvas {
   // ORCatLang Syntax:
   import C_io; /*or import "C_io.sorcat"; if you need to specify the filename*/
   import "C_types.sorcat"; 
-  // ^ legacy import system for name conflicts will always be supported.
+  // ^ explicit import system for name conflicts will always be supported.
   // Multiple imports seperated by ","
-  // externing C functions or llvm clang builtins do the following:
+  // externing C functions or llvm clang libc do the following:
   pub extern fn puts(string b)   &lt;void&gt;;
   // string, int (int64), int8, int16, int32, int64, bool, float, float32, void;
-  // params/declarations are {type} {name} then value or etc.
+  // params/declarations are {type} {name} then value or etc. C familiar syntax.
   pub fn main() &lt;int&gt; /*ret type in brackets*/ {
     print("test"); //<-- easy print syntax
 
