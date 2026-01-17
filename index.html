@@ -196,7 +196,7 @@ canvas {
   // Multiple imports seperated by ","
   // externing C functions or llvm clang builtins do the following:
   pub extern fn puts(string b)   &lt;void&gt;;
-  // string, int (int64), int8, int16, int32, int64, bool, float, void;
+  // string, int (int64), int8, int16, int32, int64, bool, float, float32, void;
   // params/declarations are {type} {name} then value or etc.
   pub fn main() &lt;int&gt; /*ret type in brackets*/ {
     print("test"); //<-- easy print syntax
@@ -209,12 +209,12 @@ canvas {
     finput returns float (compiled as double so really its a double)
     binput returns a boolean
     */
-    while (condition) {
+    while (cond is true) {
       do something;
     }
     // the continue;, and the break; keyword is also implemented. 
     // (continue = skip, break = break out a loop)
-    if (cond || cond && cond) {
+    if (cond is true) {
       do something;
     } else if (cond) {
       do something else;
@@ -226,28 +226,28 @@ canvas {
 
     // Use Crumb system
     crumble(test)!r=3!w=1; // 3 reads, 1 write.
-    // after uses or etc you can optionally deref(test);
-    // currently only working access modifiers are pub.
-    // prot and priv just does not get compiled.
+    // after uses or etc you can optionally forget(test); (forget is freeing in C but way safer.)
+    // access modifiers are for documentation purposes. They are a no-op.
 
     string[7] arrayof7;
     string[2] arrayof2 = ["test", "test"];
-    print(arrayof2[2]);
+    print(arrayof2[1]);
     
     // nomd keyword means no modify. So Immutable variables.
     // pin keyword are globals. should only be used on top scope.
     // also pointers and generics are supported.
-    // NEW FEATURE: compile time type replacement.
+    // compile time type replacement.
     string e = typeof(f);
     print(typeof(f)); newline(); 
     /*
      you can use \n and all else escape chars. 
      I just made newline(); for simplicity.
      typeof(f) gets replaced with f's type.
-     what exists: simple typeof(var)
+     what exists? simple typeof(var) or etypeof(var) for ints and bitwidths
      etypeof(var) returns the actual size EX: "int8", "int16"
-
-     NEW: added all the assign operators such as += -= etc.
+     new autoregion {}
+     deref() is now forget()
+     you can now do type cases without string reflection inside generic functions, etc.
     */
   }
 </code></pre>
